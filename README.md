@@ -102,3 +102,80 @@ This challenge can be used for the following trello assessments:
 
 ---
 [Provide feedback on this repo](https://docs.google.com/forms/d/e/1FAIpQLSfw4FGdWkLwMLlUaNQ8FtP2CTJdGDUv6Xoxrh19zIrJSkvT4Q/viewform?usp=pp_url&entry.1958421517=my-fullstack-collection)
+
+
+---
+
+Create a stateful client-side application with an accessible form for user input
+Description
+This assessment is all about considerations that come along with more complex forms. In production applications you might build as a professional developer, forms with at least a couple of inputs are likely to be made up of multiple components. As a result, they will usually have state that's managed above the level of the individual component, and will often send the information in state somewhere else in the application.
+
+Here, we're concerned with a form that lets you manipulate that state in different ways (for example adding, deleting, and editing). And accessibility is still important, so let's take it a step further and check for keyboard access!
+
+Exercises you could use for this are:
+
+todo-fullstack
+
+my-fullstack-collection
+
+Tips
+Check for accessibility by using the WAVE browser extension while viewing the page containing the form (correct the errors, contrast errors, and alerts), and by navigating the form page entirely by keyboard.
+
+Learning objective(s)
+Build and deploy accessible interactive web applications using full-stack architecture, modern frameworks and dependency management
+
+Implement and manage application-level state with tools appropriate to the framework
+
+Required
+Yes.
+
+
+Show less
+Competency requirements
+Delete
+0%
+I am managing state for multiple child components in a single JS object or array (using technologies such as: prop drilling, React query, React contexts, cookies, or local storage)
+
+I have built at least two ways for users to modify the state (adding and deleting, for example)
+
+I have built an accessible form that includes at least one text input and one button
+
+
+---
+
+
+Create and deploy a rich full-stack application using a modern framework
+Exercises you could use for this include:
+
+todo-fullstack
+
+my-fullstack-collection
+- OR any other single example where you alone have done all the steps listed below in the checklist
+
+Important! - this requires you to have completed the full cycle of interactions within the app, so must be completed on a solo branch in a single exercise or repo to show the full interaction
+
+Learning objective(s)
+Build and deploy accessible interactive web applications using full-stack architecture, modern frameworks and dependency management
+
+Use technologies needed for complex interactions such as databases, APIs, and authentication
+
+Implement and manage application-level state with tools appropriate to the framework
+
+Required
+Yes.
+
+
+Show less
+Competency requirements
+Delete
+0%
+Data can be read from and written to a SQLite3 database
+
+Data can be accessed and altered via a JSON API
+
+React is used to display data and allow users to alter data via API
+
+State is being managed on the front end, above the level of individual components (using technologies such as: prop drilling, React Query, React contexts, cookies, or local storage)
+
+I have deployed the web application to a publicly available host
+

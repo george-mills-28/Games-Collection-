@@ -37,57 +37,63 @@ export default function AddGameForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Add New Game</h3>
-      <div>
-        <label htmlFor="title">Title:</label>
-        <input
-          id="title"
-          type="text"
-          value={formData.title}
-          onChange={(e) =>
-            setFormData({ ...formData, title: e.target.value })
-          }
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="platform">Platform:</label>
-        <input
-          id="platform"
-          type="text"
-          value={formData.platform}
-          onChange={(e) =>
-            setFormData({ ...formData, platform: e.target.value })
-          }
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="release_year">Release Year:</label>
-        <input
-          id="release_year"
-          type="number"
-          value={formData.release_year}
-          onChange={(e) =>
-            setFormData({ ...formData, release_year: Number(e.target.value) })
-          }
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="genre">Genre:</label>
-        <input
-          id="genre"
-          type="text"
-          value={formData.genre}
-          onChange={(e) =>
-            setFormData({ ...formData, genre: e.target.value })
-          }
-          required
-        />
-      </div>
-      <button type="submit">Add Game</button>
+    <form onSubmit={handleSubmit} aria-labelledby="form-title">
+      <h2 id="form-title">Add New Game</h2>
+      <fieldset>
+        <legend>Game Information</legend>
+        
+        <div className="form-group">
+          <label htmlFor="title">Title:</label>
+          <input
+            id="title"
+            type="text"
+            value={formData.title}
+            onChange={(e) =>
+              setFormData({ ...formData, title: e.target.value })
+            }
+            required
+            aria-required="true"
+            aria-label="Game title"
+          />
+        </div>
+        <div>
+          <label htmlFor="platform">Platform:</label>
+          <input
+            id="platform"
+            type="text"
+            value={formData.platform}
+            onChange={(e) =>
+              setFormData({ ...formData, platform: e.target.value })
+            }
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="release_year">Release Year:</label>
+          <input
+            id="release_year"
+            type="number"
+            value={formData.release_year}
+            onChange={(e) =>
+              setFormData({ ...formData, release_year: Number(e.target.value) })
+            }
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="genre">Genre:</label>
+          <input
+            id="genre"
+            type="text"
+            value={formData.genre}
+            onChange={(e) =>
+              setFormData({ ...formData, genre: e.target.value })
+            }
+            required
+          />
+        </div>
+        <button type="submit">Add Game</button>
+      </fieldset>
     </form>
   )
 } 

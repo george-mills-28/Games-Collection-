@@ -66,7 +66,8 @@
     "prettier": "^3.2.5",
     "sass": "^1.50.1",
     "supertest": "^6.3.4",
-    "tsx": "^3.12.7"
+    "tsx": "^3.12.7",
+    "vite": "^x.x.x"
   },
   "prettier": {
     "semi": false,

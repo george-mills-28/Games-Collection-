@@ -92,13 +92,13 @@ form input {
 }
 
 .game-card p {
-  color: #666;
+  color: #4b5563;
   margin: 8px 0;
 }
 
 /* Button Styling */
 button {
-  background: #3498db;
+  background: #2563eb;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -110,15 +110,15 @@ button {
 }
 
 button:hover {
-  background: #2980b9;
+  background: #1d4ed8;
 }
 
 button[type="button"] {
-  background: #e74c3c;
+  background: #dc2626;
 }
 
 button[type="button"]:hover {
-  background: #c0392b;
+  background: #b91c1c;
 }
 
 .game-card-buttons {

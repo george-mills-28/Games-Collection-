@@ -16,9 +16,9 @@ export function CollectionStats({ games }: CollectionStatsProps): ReactElement {
   const totalGames = games.length
   const uniquePlatforms = new Set(games.map(game => game.platform)).size
   const uniqueGenres = new Set(games.map(game => game.genre)).size
-  const averageYear = games.length
-    ? Math.round(games.reduce((sum, game) => sum + game.release_year, 0) / totalGames)
-    : 0
+  const averageYear = Math.round(
+    games.reduce((sum, game) => sum + game.release_year, 0) / totalGames
+  )
 
   return (
     <div className="collection-stats">

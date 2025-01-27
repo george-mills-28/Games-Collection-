@@ -18,7 +18,7 @@ export default function GamesList() {
   const [sortBy, setSortBy] = useState('title')
 
   const {
-    data: games,
+    data: games = [], // Provide default empty array
     error,
     isLoading,
   } = useQuery({ queryKey: ['games'], queryFn: getAllGames })
@@ -36,6 +36,31 @@ export default function GamesList() {
       queryClient.invalidateQueries({ queryKey: ['games'] })
       setEditingGame(null)
     },
+  })
+
+  // Get unique platforms for filter dropdown
+  const platforms = [...new Set(games.map(game => game.platform))]
+  
+  // Filter games based on search and platform
+  const filteredGames = games.filter(game => {
+    const matchesSearch = game.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         game.genre.toLowerCase().includes(searchTerm.toLowerCase())
+    const matchesPlatform = filterPlatform === 'all' || game.platform === filterPlatform
+    return matchesSearch && matchesPlatform
+  })
+
+  // Sort the filtered games
+  const sortedGames = [...filteredGames].sort((a, b) => {
+    switch (sortBy) {
+      case 'year':
+        return b.release_year - a.release_year
+      case 'title':
+        return a.title.localeCompare(b.title)
+      case 'platform':
+        return a.platform.localeCompare(b.platform)
+      default:
+        return 0
+    }
   })
 
   const handleDelete = (id: number) => {
@@ -64,9 +89,40 @@ export default function GamesList() {
 
   return (
     <div className="games-list">
-      <h2>My Games Collection</h2>
+      <div className="games-list-header">
+        <h2>My Games Collection</h2>
+        <div className="filters">
+          <input
+            type="search"
+            placeholder="Search games..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-input"
+          />
+          <select 
+            value={filterPlatform}
+            onChange={(e) => setFilterPlatform(e.target.value)}
+            className="platform-filter"
+          >
+            <option value="all">All Platforms</option>
+            {platforms.map(platform => (
+              <option key={platform} value={platform}>{platform}</option>
+            ))}
+          </select>
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="sort-select"
+          >
+            <option value="title">Sort by Title</option>
+            <option value="year">Sort by Year</option>
+            <option value="platform">Sort by Platform</option>
+          </select>
+        </div>
+      </div>
+      
       <div className="games-grid">
-        {games.map((game) => (
+        {sortedGames.map((game) => (
           <div key={game.id} className="game-card">
             {editingGame?.id === game.id ? (
               <form onSubmit={handleUpdate}>

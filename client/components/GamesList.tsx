@@ -13,6 +13,9 @@ interface Game {
 export default function GamesList() {
   const queryClient = useQueryClient()
   const [editingGame, setEditingGame] = useState<Game | null>(null)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [filterPlatform, setFilterPlatform] = useState('all')
+  const [sortBy, setSortBy] = useState('title')
 
   const {
     data: games,
